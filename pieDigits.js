@@ -1,6 +1,11 @@
 let rndIndex = 0;
+let digitsOfPie;
 
 function randomPie(n) {
+    if (digitsOfPie == null) {
+        digitsOfPie = Array.from(getPie()); // getPie() in pieDigits.js
+    }
+
     let rndPie = 0;
     for (let i = 0; i < n; i++) {
         rndPie += digitsOfPie[rndIndex] * pow(10, (n - 1) - i);

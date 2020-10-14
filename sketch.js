@@ -1,15 +1,13 @@
-let digitsOfPie;
 let diam;
 
 const pieRandomDigits = 2;
-// let randomMethod = rndPie; // diam must be 10^pieRandomDigits
-let randomMethod = p5js;
+let randomMethod = rndPie; // diam must be 10^pieRandomDigits
+// let randomMethod = p5js;
 
 function setup() {
     diam = pow(10, pieRandomDigits);
     createCanvas(diam, diam);
-    digitsOfPie = Array.from(getPie()); // getPie() in pieDigits.js
-    // frameRate(1 / 2);
+    frameRate(1);
 }
 
 function draw() {

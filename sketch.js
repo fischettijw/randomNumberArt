@@ -1,11 +1,20 @@
+let digitsOfPie;
+let diam;
+
+const pieRandomDigits = 2;
+// let randomMethod = rndPie; // diam must be 10^pieRandomDigits
+let randomMethod = p5js;
+
 function setup() {
-    createCanvas(500, 500);
-    frameRate(1 / 3);
+    diam = pow(10, pieRandomDigits);
+    createCanvas(diam, diam);
+    digitsOfPie = Array.from(getPie()); // getPie() in pieDigits.js
+    // frameRate(1 / 2);
 }
 
 function draw() {
     background('black');
-    generatePoints(width * height);
+    generatePoints(diam * diam);
 }
 
 function generatePoints(n) {
@@ -14,9 +23,17 @@ function generatePoints(n) {
     let c = ['red', 'green', 'blue', 'cyan', 'yellow', 'magenta', 'white'];
     strokeWeight(1);
     for (i = 0; i < n; i++) {
-        x = floor(random(0, width));
-        y = floor(random(0, height));
+        x = randomMethod();
+        y = randomMethod();
         stroke(random(c));
         point(x, y);
     }
+}
+
+function p5js() {
+    return random(0, diam);
+}
+
+function rndPie() {
+    return randomPie(pieRandomDigits);
 }
